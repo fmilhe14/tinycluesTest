@@ -12,7 +12,7 @@ public class Main {
 
             Map<Integer, Integer> presentValues = new HashMap<>();
 
-            //Then we remove occurences of the list (O(N))
+            //Build a map with presents integers, and save min and max of the array
             for (int i = 0; i < inputArray.length; i++) {
 
                 if ((inputArray[i] < min)) {
@@ -30,7 +30,7 @@ public class Main {
             //For Loop : O(MAX - MIN - 2)
             for (int i = min + 1; i < max; i++) {
 
-                //We add to the results the interval of integer between two consecutives member of the array
+                //If integer is not in the map, we add it to the results
                 if (!presentValues.containsKey(i)) {
 
                     res.add(i);
@@ -47,7 +47,6 @@ public class Main {
     //O(N)
     public static int counter(Integer[] userIds) {
 
-        //We first make a copy of the userIds
         List<Integer> userIdsCopy = new LinkedList<>(Arrays.asList(userIds));
         Set<Integer> uniqueUsersIds = new HashSet<>(userIdsCopy);
 
@@ -58,7 +57,6 @@ public class Main {
     public static int countUniqueUsers(List<Integer[]> userIdsOfAMonth) {
 
         //We will first convert the Integer arrays in Maps
-
         List<Map<Integer, Integer>> userIdsMaps = new ArrayList<>();
 
         //O(M) M the Number Of Days in the month
