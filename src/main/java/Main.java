@@ -3,9 +3,9 @@ import java.util.*;
 public class Main {
 
     //O(N + (MAX - MIN))
-    public static int[] findMissing(Integer[] inputArray){
+    public static int[] findMissing(Integer[] inputArray) {
 
-        if(inputArray.length > 1) {
+        if (inputArray.length > 1) {
 
             int min = Integer.MAX_VALUE;
             int max = Integer.MIN_VALUE;
@@ -13,13 +13,11 @@ public class Main {
             Map<Integer, Integer> presentValues = new HashMap<>();
 
             //Then we remove occurences of the list (O(N))
-            for (int i = 0; i < inputArray.length ; i++) {
+            for (int i = 0; i < inputArray.length; i++) {
 
                 if ((inputArray[i] < min)) {
                     min = inputArray[i];
-                }
-
-                else if ((inputArray[i] > max)) {
+                } else if ((inputArray[i] > max)) {
                     max = inputArray[i];
                 }
 
@@ -30,7 +28,7 @@ public class Main {
             List<Integer> res = new ArrayList<>();
 
             //For Loop : O(MAX - MIN - 2)
-            for (int i = min + 1; i < max ; i++) {
+            for (int i = min + 1; i < max; i++) {
 
                 //We add to the results the interval of integer between two consecutives member of the array
                 if (!presentValues.containsKey(i)) {
@@ -40,16 +38,14 @@ public class Main {
             }
 
             return res.stream().mapToInt(i -> i).toArray();
-        }
-
-        else {
+        } else {
             return new int[0];
         }
 
     }
 
     //O(N)
-    public static int counter(Integer[] userIds){
+    public static int counter(Integer[] userIds) {
 
         //We first make a copy of the userIds
         List<Integer> userIdsCopy = new LinkedList<>(Arrays.asList(userIds));
@@ -59,19 +55,19 @@ public class Main {
     }
 
     //O(MAX Users During a Day)
-    public static int countUniqueUsers(List<Integer[]> userIdsOfAMonth){
+    public static int countUniqueUsers(List<Integer[]> userIdsOfAMonth) {
 
         //We will first convert the Integer arrays in Maps
 
         List<Map<Integer, Integer>> userIdsMaps = new ArrayList<>();
 
         //O(M) M the Number Of Days in the month
-        for(Integer[] usersForOneDay : userIdsOfAMonth){
+        for (Integer[] usersForOneDay : userIdsOfAMonth) {
 
             Map<Integer, Integer> mapUsersForADay = new HashMap<>();
 
             //O(N), N the max amount of users seen in a day
-            for( int userId: usersForOneDay){
+            for (int userId : usersForOneDay) {
 
                 mapUsersForADay.putIfAbsent(userId, 1);
 
@@ -80,10 +76,10 @@ public class Main {
             userIdsMaps.add(mapUsersForADay);
         }
 
-       Map<Integer, Integer> usersSeenInTheMonth = new HashMap<>();
+        Map<Integer, Integer> usersSeenInTheMonth = new HashMap<>();
 
         //O(M)
-        for(Map<Integer, Integer> userIds : userIdsMaps){
+        for (Map<Integer, Integer> userIds : userIdsMaps) {
 
             //O(N)
             usersSeenInTheMonth.putAll(userIds);

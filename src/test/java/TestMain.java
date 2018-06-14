@@ -1,14 +1,13 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class TestMain {
 
     @Test
-    public void testMissingElements(){
+    public void testMissingElements() {
 
         //Given
         Integer[] inputArray = new Integer[]{3, 9, 2, 11};
@@ -28,7 +27,7 @@ public class TestMain {
     }
 
     @Test
-    public void testCounter(){
+    public void testCounter() {
 
         //Given
         Integer[] inputArray = new Integer[]{3, 9, 2, 11};
@@ -43,15 +42,15 @@ public class TestMain {
     }
 
     @Test
-    public void testCounterForMonth(){
+    public void testCounterForMonth() {
 
         //Given
 
         //Contains 6 different users
-        Integer[] usersDay1 = new Integer[]{1,6};
-        Integer[] usersDay2 = new Integer[]{2,5};
-        Integer[] usersDay3 = new Integer[]{3,1};
-        Integer[] usersDay4 = new Integer[]{4,2};
+        Integer[] usersDay1 = new Integer[]{1, 6};
+        Integer[] usersDay2 = new Integer[]{2, 5};
+        Integer[] usersDay3 = new Integer[]{3, 1};
+        Integer[] usersDay4 = new Integer[]{4, 2};
         Integer[] usersDay5 = new Integer[]{};
 
 
